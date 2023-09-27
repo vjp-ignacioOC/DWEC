@@ -1,4 +1,9 @@
 
+
+/*
+    PRUEBA 6 - 6.2
+ */
+
 // let funcionLambda = (arg1, arg2) => {return arg1 + arg2};
 // console.log(funcionLambda(3,2));
 
@@ -24,4 +29,131 @@ console.log(procesaTres(2, 5, 4, (n1,n2,n3) => Math.max(n1,n2,n3)));
 console.log(procesaTres(2, 5, 4, (n1,n2,n3) => Math.min(n1,n2,n3)));
 
 // D.- Devuelva la suma del primero y el tercero y el resultado dividido entre el segundo.
-console.log(procesaTres(2, 5, 4, (n1,n2,n3) => (n1+n2)/n3));
+console.log(procesaTres(2, 5, 4, (n1,n2,n3) => (n1+n3)/n2));
+
+
+/*
+    PRUEBA 7
+ */
+function cambiarContenido(a, b, c) {
+    a = a*10;
+    b.item = "cambiar";
+    c = {item: "cambiar"};
+}
+
+var num= 10;
+var obj1 = {item: "inicial"};
+var obj2 = {item: "inicial"};
+
+cambiarContenido(num, obj1, obj2);
+
+console.log(num);
+console.log(obj1.item);
+console.log(obj2.item);
+
+
+/*
+    PRUEBA 8 - 8.5
+ */
+
+// function calculaPrecioConImpuesto(valor, impuesto = 10) {
+//     return valor + impuesto;
+// }
+
+console.log("Producto de 100€, sin entrada de impuesto: " + calculaPrecioConImpuesto(100));
+console.log("Producto de 100€, con 30€ de impuesto: " + calculaPrecioConImpuesto(100, 30));
+
+function calculaPrecioConImpuesto(valor, impuesto = (valor/10)) {
+    return valor + impuesto;
+}
+
+/*
+    PRUEBA 9
+ */
+// if
+let precio = 65;
+if(precio < 50){
+    console.log("Esto es barato");
+} else if (precio < 100){
+    console.log("Esto no es tan barato...");
+} else {
+    console.log("Esto es caro");
+}
+// switch (Es mejor que el if)
+let tipoUsuario = 1;
+switch (tipoUsuario) {
+    case 1: //No tiene nada porque el case1 tiene las mismas opciones que el case2
+    case 2:
+        console.log("Puedes acceder.");
+        break;
+    case 3:
+        console.log("No tienes permisos de acceso.");
+        break;
+    default:
+        console.error("Tipo de usuario incorrecto");
+}
+
+/*
+    PRUEBA 10
+ */
+// WHILE
+console.log("PreIntento");
+let i = 1;
+while (i < 5) {
+    console.log(i++);
+}
+
+console.log("\nPostIncremento");
+let j = 1;
+while (j < 5){
+    console.log(++j);
+}
+// DO .. WHILE
+console.log("\nCon Do..While");
+let value = 1;
+do {
+    console.log(value++);
+} while (value <= 5);
+//FOR
+console.log("\nCon For");
+for (let indice = 0; indice < 5; indice++){
+    console.log(indice);
+}
+// Varias inicializaciones en el for:
+console.log("\nFor con múltiples sentencias");
+for (let ind1 = 0, ind2 = 5; ind1 < 5 && ind2 > 0; ind1++ && ind2--) {
+    console.log(ind1 + " -- " + ind2);
+}
+
+
+/*
+    PRUEBA 11
+ */
+console.log(typeof 3);
+console.log(typeof 3.56);
+
+let num2 = 3.2e-3;
+console.log(num2);
+
+console.log(3.32924325.toFixed(2));
+console.log(5435.45.toExponential());
+console.log((3).toFixed(2));
+
+
+console.log(Number.MIN_VALUE);
+console.log(Number.MAX_VALUE);
+console.log(Number.MAX_VALUE * 2);
+console.log(Number.POSITIVE_INFINITY);
+console.log(Number.NEGATIVE_INFINITY);
+console.log(typeof Number.POSITIVE_INFINITY);
+console.log(Number.POSITIVE_INFINITY / 2);
+
+
+/*
+    PRUEBA 12
+ */
+let c = 3;
+let d = "12";
+console.log(c * d); //36
+console.log(c + d); //312
+console.log(c + +d); //15
