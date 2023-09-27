@@ -1,11 +1,3 @@
-//alert("Esto es una alerta");
-
-//while (!nombre) {
-//var nombre=prompt("Introduce tu nombre")
-//}
-//console.log("Ha entrado en el sistema" +nombre);
-
-
 // /*
 //     PRUEBA 1
 //  */
