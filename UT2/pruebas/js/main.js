@@ -209,8 +209,21 @@
 /*
     PRUEBA 12
  */
-let c = 3;
-let d = "12";
-console.log(c * d); //36
-console.log(c + d); //312
-console.log(c + +d); //15
+// let c = 3;
+// let d = "12";
+// console.log(c * d); //36
+// console.log(c + d); //312
+// console.log(c + +d); //15
+
+
+/*
+    PRUEBA 14
+ */
+function setPersona() {
+    let persona = "Pedro";
+    console.log(persona);
+}
+let persona = "Marcos";
+setPersona();
+console.log(persona);
+
