@@ -219,11 +219,59 @@
 /*
     PRUEBA 14
  */
-function setPersona() {
-    let persona = "Pedro";
-    console.log(persona);
-}
-let persona = "Marcos";
-setPersona();
-console.log(persona);
+// function setPersona() {
+//     let persona = "Pedro";
+//     console.log(persona);
+// }
+// let persona = "Marcos";
+// setPersona();
+// console.log(persona);
 
+
+/*
+    PRUEBA 21
+ */
+
+// function ordenaEnteros(entero1, entero2) {
+//     if (entero1 > entero2) {
+//         return 1;
+//     } else if (entero2 > entero1) {
+//         return -1;
+//     } else {
+//         return 0;
+//     }
+// }
+//
+// let array = [20, 6, 100, 51, 28, 9];
+// array.sort(ordenaEnteros);
+// console.log(array);
+//
+// // Otra forma es con la función lambda
+//
+// console.log(array.sort((a, b) => (a - b)));
+
+
+/*
+    PRUEBA 22
+ */
+class Persona {
+    constructor(nombre, edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+    toString() {
+        return this.nombre + "("+this.edad+")";
+    }
+}
+
+let personas = [new Persona("Marcos", 33), new Persona("Maria", 19), new Persona("Santiago", 28), new Persona("Cristina", 40)];
+console.log(personas);
+personas.sort();
+console.log(personas.toString());
+
+function ordenaPersonas(array) {
+    return array.sort((a, b) => (a.edad-b.edad));
+}
+
+ordenaPersonas(personas);
+console.log(personas.toString());
