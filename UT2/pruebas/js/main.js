@@ -6,14 +6,14 @@
 //console.log(nombre);
 //console.log(typeof nombre);
 
-//var altura = 180;
-//console.log(altura);
-//console.log(typeof altura);
+var altura = 180;
+console.log(altura);
+console.log(typeof altura);
 
-//altura = "Uno con Ochenta"
-//console.log(altura);
-//console.log(typeof altura);
-//</script>
+altura = "Uno con Ochenta"
+console.log(altura);
+console.log(typeof altura);
+// </script>
 
 
 // /*
@@ -254,24 +254,24 @@
 /*
     PRUEBA 22
  */
-class Persona {
-    constructor(nombre, edad) {
-        this.nombre = nombre;
-        this.edad = edad;
-    }
-    toString() {
-        return this.nombre + "("+this.edad+")";
-    }
-}
-
-let personas = [new Persona("Marcos", 33), new Persona("Maria", 19), new Persona("Santiago", 28), new Persona("Cristina", 40)];
-console.log(personas);
-personas.sort();
-console.log(personas.toString());
-
-function ordenaPersonas(array) {
-    return array.sort((a, b) => (a.edad-b.edad));
-}
-
-ordenaPersonas(personas);
-console.log(personas.toString());
+// class Persona {
+//     constructor(nombre, edad) {
+//         this.nombre = nombre;
+//         this.edad = edad;
+//     }
+//     toString() {
+//         return this.nombre + "("+this.edad+")";
+//     }
+// }
+//
+// let personas = [new Persona("Marcos", 33), new Persona("Maria", 19), new Persona("Santiago", 28), new Persona("Cristina", 40)];
+// console.log(personas);
+// personas.sort();
+// console.log(personas.toString());
+//
+// function ordenaPersonas(array) {
+//     return array.sort((a, b) => (a.edad-b.edad));
+// }
+//
+// ordenaPersonas(personas);
+// console.log(personas.toString());
