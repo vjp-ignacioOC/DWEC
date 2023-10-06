@@ -9,18 +9,18 @@
  */
 
 arrayPrueba = [1,2,3,4];
-console.log("El Array inicial es: " + arrayPrueba);
+console.log("El Array inicial es: " + arrayPrueba.join('#'));
 // 1
 arrayPrueba.unshift(5,6,7);
-console.log("La primera prueba es: " + arrayPrueba);
+console.log("La primera prueba es: " + arrayPrueba.join('#'));
 // 2
 arrayPrueba.push(8,9,0);
-console.log("La segunda prueba es: " + arrayPrueba);
+console.log("La segunda prueba es: " + arrayPrueba.join('#'));
 //3
 arrayPrueba.splice(3,3);
-console.log("La tercera prueba es: " + arrayPrueba);
+console.log("La tercera prueba es: " + arrayPrueba.join('#'));
 // 4
 arrayPrueba.splice(-1,0,1, 2);
-console.log("La cuarta prueba es: " + arrayPrueba);
+console.log("La cuarta prueba es: " + arrayPrueba.join('#'));
 
 
