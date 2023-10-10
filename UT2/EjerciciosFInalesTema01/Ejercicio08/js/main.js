@@ -8,8 +8,8 @@
 function procesarArray(array) {
     // a)
     for (i = 0; i < array.length; i++){
-        if (typeof array[i] !== "number") {
-            console.log("Error. No todos los elementos del array son números.");
+        if (typeof array !== "number") {
+            alert("Error. No todos los elementos del array son números.");
         } else {
             // b)
             console.log(array.filter(num => num*2));
@@ -23,3 +23,5 @@ function procesarArray(array) {
     }
 }
 
+let array = new Array(2, "Samuel", 3, 4);
+procesarArray(array);
