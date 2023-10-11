@@ -7,21 +7,27 @@
 
 function procesarArray(array) {
     // a)
-    for (i = 0; i < array.length; i++){
-        if (typeof array !== "number") {
+    let esNumero = true;
+    let i = 0;
+    while (i < array.length && esNumero){
+        if (typeof array[i] !== "number") {
             alert("Error. No todos los elementos del array son números.");
-        } else {
+            esNumero = false;
+        }
+        if (esNumero){
             // b)
             console.log(array.filter(num => num*2));
-            // c)
-            if (array[i] % 2 == 0) {
-                console.log("Éxito. Todos son pares.");
-            } else {
-                console.log("Fracaso. No son todos pares");
-            }
         }
+        i++;
     }
+    // c)
+    if (array % 2 == 0) {
+        alert("EXITO.Todos los números son pares.")
+    } else {
+        alert("FRACASO. No todos los números son pares.")
+    }
+
 }
 
-let array = new Array(2, "Samuel", 3, 4);
+let array = new Array(2, 6, 4);
 procesarArray(array);
