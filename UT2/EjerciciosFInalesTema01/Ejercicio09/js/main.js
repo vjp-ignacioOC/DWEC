@@ -1,5 +1,5 @@
 /*
-    9) Crea un programa en el que existan 3 objetos de tipo platoCocina, que tengan los atributos: nombrePlato(cadena), duracionMinutos(un número) y dificultad(un número).
+    9.- Crea un programa en el que existan 3 objetos de tipo platoCocina, que tengan los atributos: nombrePlato(cadena), duracionMinutos(un número) y dificultad(un número).
     Almacena en un mapa la relación de cada plato con un array que guarde los ingredientes que se utilizan como cadenas.
 */
 
