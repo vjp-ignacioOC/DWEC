@@ -5,29 +5,25 @@
     c) Por último comprueba que todos los elementos son pares. Si es así muestra un mensaje por pantalla de éxito, en caso contrario, de error.
  */
 
+let array = ["aa", 2, 4, 6];
+
 function procesarArray(array) {
-    // a)
-    let esNumero = true;
-    let i = 0;
-    while (i < array.length && esNumero){
-        if (typeof array[i] !== "number") {
-            alert("Error. No todos los elementos del array son números.");
-            esNumero = false;
+    array.forEach(elemento => {
+        if (typeof elemento != "number") {
+            return alert("Error.");
+        } else {
+            return array.push(elemento * 2);
         }
-        if (esNumero){
-            // b)
-            console.log(array.filter(num => num*2));
-        }
-        i++;
-    }
-    // c)
-    if (array % 2 == 0) {
-        alert("EXITO.Todos los números son pares.")
+    });
+
+    let comprobar = array.every(num => num % 2 === 0);
+    if (!comprobar) {
+        console.log("Su array no ha sido exitoso.");
     } else {
-        alert("FRACASO. No todos los números son pares.")
+        console.log("Su array ha sido exitoso.");
     }
 
+    return array
 }
 
-let array = new Array(2, 6, 4);
-procesarArray(array);
+console.log(procesarArray(array));
