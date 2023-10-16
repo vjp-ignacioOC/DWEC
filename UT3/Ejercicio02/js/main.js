@@ -60,7 +60,24 @@ elemento8.forEach(element => {
     8.- Pinta todos los elementos “a” que sean hermanos (anteriores y posteriores) del enlace que tenga como título “Spiderman”.
  */
 
-let elemento9 = document.querySelectorAll("a +.linkNormal[title=Siderman]");
-elemento9.forEach(element => {
-    console.log("8.- " + element);
-});
+let elemento9 = document.querySelector('a[title="Spiderman"]');
+let sibling = [];
+let currentNode = elemento9;
+
+while (currentNode = currentNode.previousSibling) {
+    if (currentNode.nodeName === 'A') {
+        sibling.push(currentNode);
+    }
+}
+
+currentNode = elemento9;
+
+while (currentNode = currentNode.nextSibling) {
+    if (currentNode.nodeName === 'A') {
+        sibling.push(currentNode);
+    }
+}
+
+sibling.forEach(si => {
+    si.style.backgroundColor = "yellow";
+})
