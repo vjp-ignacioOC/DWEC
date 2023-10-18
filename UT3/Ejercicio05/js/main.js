@@ -37,17 +37,22 @@
     El botón tendrá un tamaño de 25px para el ancho y el alto.
     Habrá una separación entre elementos de 10px.
  */
+
+
 let contenedorGeneral = document.getElementById("contenedorGeneral");
+contenedorGeneral.style.width = "450px";
 function crearMatriz() {
-    let matriz = [];
     for (let i = 0; i < 10; i++) {
-        matriz[i] = i;
         for (let j = 0; j < 10; j++) {
-            matriz[i][j] = j;
+           let boton = document.createElement("button");
+           boton.style.margin = "10px";
+           boton.style.width = "25px";
+           boton.style.height = "25px";
+           contenedorGeneral.appendChild(boton);
         }
     }
 }
-
+crearMatriz();
 
 
 
