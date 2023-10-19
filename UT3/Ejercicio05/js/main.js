@@ -76,7 +76,7 @@ function crearMatriz() {
 
             // Función para manejar el color con el botón derecho
             function cambiarColorContextMenu(event) {
-                event.preventDefault(); // Evitar el menú contextual del navegador
+                event.preventDefault(); // Evitar el menú
                 switch (boton.style.backgroundColor) {
                     case "gray":
                         boton.style.backgroundColor = "yellow";
