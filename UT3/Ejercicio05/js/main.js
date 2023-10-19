@@ -69,7 +69,7 @@ function crearMatriz() {
                         boton.style.backgroundColor = "yellow";
                         break;
                     case "yellow":
-                        boton.style.backgroundColor = "gray";
+                        boton.style.backgroundColor = "red";
                         break;
                 }
             }
@@ -91,7 +91,7 @@ function crearMatriz() {
                         boton.style.backgroundColor = "red";
                         break;
                     case "red":
-                        boton.style.backgroundColor = "gray";
+                        boton.style.backgroundColor = "yellow";
                         break;
                 }
             }
