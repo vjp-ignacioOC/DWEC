@@ -41,19 +41,78 @@
 
 let contenedorGeneral = document.getElementById("contenedorGeneral");
 contenedorGeneral.style.width = "450px";
+
 function crearMatriz() {
     for (let i = 0; i < 10; i++) {
         for (let j = 0; j < 10; j++) {
-           let boton = document.createElement("button");
-           boton.style.margin = "10px";
-           boton.style.width = "25px";
-           boton.style.height = "25px";
-           contenedorGeneral.appendChild(boton);
+            let boton = document.createElement("button");
+            boton.style.margin = "10px";
+            boton.style.width = "25px";
+            boton.style.height = "25px";
+            contenedorGeneral.appendChild(boton);
+            boton.style.backgroundColor = "gray";
+
+            // Función para manejar el color con el botón izquierdo
+            function cambiarColor() {
+                switch (boton.style.backgroundColor) {
+                    case "gray":
+                        boton.style.backgroundColor = "red";
+                        break;
+                    case "red":
+                        boton.style.backgroundColor = "blue";
+                        break;
+                    case "blue":
+                        boton.style.backgroundColor = "green";
+                        break;
+                    case "green":
+                        boton.style.backgroundColor = "yellow";
+                        break;
+                    case "yellow":
+                        boton.style.backgroundColor = "gray";
+                        break;
+                }
+            }
+
+            // Función para manejar el color con el botón derecho
+            function cambiarColorContextMenu(event) {
+                event.preventDefault(); // Evitar el menú contextual del navegador
+                switch (boton.style.backgroundColor) {
+                    case "gray":
+                        boton.style.backgroundColor = "yellow";
+                        break;
+                    case "yellow":
+                        boton.style.backgroundColor = "green";
+                        break;
+                    case "green":
+                        boton.style.backgroundColor = "blue";
+                        break;
+                    case "blue":
+                        boton.style.backgroundColor = "red";
+                        break;
+                    case "red":
+                        boton.style.backgroundColor = "gray";
+                        break;
+                }
+            }
+
+            // Función para manejar el color con el botón del medio
+            function cambiarColorMiddleClick() {
+                boton.style.backgroundColor = "gray";
+            }
+
+            // Llamamos a las funciones según el evento
+            boton.addEventListener('click', cambiarColor);
+            boton.addEventListener('contextmenu', cambiarColorContextMenu);
+            boton.addEventListener('mousedown', function (event) {
+                if (event.button === 1) {
+                    cambiarColorMiddleClick.call(boton);
+                }
+            });
         }
     }
 }
-crearMatriz();
 
+crearMatriz();
 
 
 
