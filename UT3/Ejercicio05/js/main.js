@@ -41,6 +41,7 @@
 
 let contenedorGeneral = document.getElementById("contenedorGeneral");
 contenedorGeneral.style.width = "450px";
+contenedorGeneral.style.height = "450px";
 
 function crearMatriz() {
     for (let i = 0; i < 10; i++) {
