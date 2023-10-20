@@ -23,6 +23,7 @@ function validarDNI() {
     }
 }
 
+
 function validarFecha() {
     const fecha = document.getElementById("entrada").value;
     if (fecha) {
