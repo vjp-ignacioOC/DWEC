@@ -12,3 +12,17 @@ function guardarNota() {
         alert("No has introducido texto");
     }
 }
+
+let contenedorNotas = document.getElementById("notas");
+contenedorNotas.addEventListener("click", borrarNota);
+
+function borrarNota(event) {
+    if (event.target.tagName === 'P') {
+        if(event.altKey) {
+            event.target.style.backgroundColor = 'red';
+        } else {
+            event.target.remove();
+        }
+    }
+}
+
