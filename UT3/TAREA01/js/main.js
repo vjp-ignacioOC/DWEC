@@ -19,6 +19,8 @@ function validarDNI() {
     if (dni) {
         if (!validDni.test(dni)){
             alert("La entrada NO es un DNI válido.");
+        } else {
+            alert("El DNI es válido.");
         }
     }
 }
@@ -29,6 +31,8 @@ function validarFecha() {
     if (fecha) {
         if (!validFecha.test(fecha)) {
             alert("La entrada NO es una fecha válida.");
+        } else {
+            alert("La fecha es válida.");
         }
     }
 }
