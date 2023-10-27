@@ -84,6 +84,7 @@ newPlace[0].addEventListener('click', (event) => {
     let correspondenciaDias = ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'];
     let fechaActual = new Date();
     let numeroDiaHoy = fechaActual.getDay();
+    
     // Crear un nuevo restaurante con los valores ingresados
     const nuevoRestaurante = document.createElement('div');
     nuevoRestaurante.classList.add('card');
