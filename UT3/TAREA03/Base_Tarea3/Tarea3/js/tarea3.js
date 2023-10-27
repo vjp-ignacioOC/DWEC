@@ -1,5 +1,4 @@
-const botonCrear = document.querySelector('button[type="submit"]');
-botonCrear.id = "newPlace";
+
 
 // Funciones de validación
 function validarNombre(nombre) {
@@ -16,8 +15,8 @@ function validarCocina(cocina) {
 }
 
 function validarTelefono(telefono) {
-    const regex = /^[0-9]{9}$/;
-    return regex.test(telefono);
+    const regex2 = /^[0-9]{9}$/;
+    return regex2.test(telefono);
 }
 
 function validarImagen() {
@@ -31,8 +30,8 @@ function estaSeleccionado(dia) {
 }
 
 // Evento para validar la imagen al cargarla
-let foto = document.getElementById('foto');
-foto.addEventListener('change', (event) => {
+    let foto = document.getElementById('foto');
+    foto.addEventListener('change', (event) => {
     const file = event.target.files[0];
     const reader = new FileReader();
     if (file) {
@@ -44,41 +43,47 @@ foto.addEventListener('change', (event) => {
 });
 
 // Evento para manejar el envío del formulario
-let newPlace = document.getElementById('newPlace');
-newPlace.addEventListener('submit', (event) => {
-    event.preventDefault(); // Evitar el envío por defecto del formulario
+let newPlace = document.querySelectorAll('button');
+newPlace[0].addEventListener('click', (event) => {
+    event.preventDefault();
 
     // Obtener valores del formulario
-    const nombre = document.getElementById('nombre').value;
-    const descripcion = document.getElementById('descripcion').value;
-    const cocina = document.getElementById('cocina').value;
-    const telefono = document.getElementById('telefono').value;
+    let nombre = document.getElementById('nombre').value;
+    let descripcion = document.getElementById('descripcion').value;
+    let cocina = document.getElementById('cocina').value;
+    let telefono = document.getElementById('telefono').value;
 
     // Validar cada campo y mostrar mensajes de error si es necesario
     if (!validarNombre(nombre)) {
         document.getElementById('nombre').classList.add('is-invalid');
-        return;
+    } else {
+        document.getElementById('nombre').classList.add('is-valid');
     }
 
     if (!validarDescripcion(descripcion)) {
         document.getElementById('descripcion').classList.add('is-invalid');
-        return;
+    } else {
+        document.getElementById('descripcion').classList.add('is-valid');
     }
 
     if (!validarCocina(cocina)) {
         document.getElementById('cocina').classList.add('is-invalid');
-        return;
+    } else {
+        document.getElementById('cocina').classList.add('is-valid');
     }
 
     if (!validarTelefono(telefono)) {
         document.getElementById('telefono').classList.add('is-invalid');
-        return;
+    } else {
+        document.getElementById('telefono').classList.add('is-valid');
     }
 
     if (!validarImagen()) {
-        return;
-    }
 
+    }
+    let correspondenciaDias = ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'];
+    let fechaActual = new Date();
+    let numeroDiaHoy = fechaActual.getDay();
     // Crear un nuevo restaurante con los valores ingresados
     const nuevoRestaurante = document.createElement('div');
     nuevoRestaurante.classList.add('card');
