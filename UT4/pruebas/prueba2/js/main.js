@@ -25,4 +25,6 @@ class Administrador extends Usuario {
     }
 }
 
-let admin = new Admini
+let admin = new Administrador("antonio");
+admin.saludo();
+admin.decirTipo();
