@@ -25,8 +25,39 @@ function validarImagen() {
 
 // Función para verificar si un día específico está seleccionado
 function estaSeleccionado(dia) {
-    const checkbox = document.getElementById(`check${dia}`);
-    return checkbox.checked;
+    let checkbox = "";
+    switch (checkbox) {
+        case document.getElementById("checkLunes"):
+            // checkbox = document.getElementById("checkLunes");
+            dia = "Lun";
+            break;
+        case document.getElementById("checkMartes"):
+            // checkbox = document.getElementById("checkMartes");
+            dia = "Mar";
+            break;
+        case document.getElementById("checkMiercoles"):
+            // checkbox = document.getElementById("checkMiercoles");
+            dia = "Mie";
+            break;
+        case document.getElementById("checkJueves"):
+            // checkbox = document.getElementById("checkjueves");
+            dia = "Jue";
+            break;
+        case document.getElementById("checkViernes"):
+            // checkbox = document.getElementById("checkViernes");
+            dia = "Vie";
+            break;
+        case document.getElementById("checkSabado"):
+            // checkbox = document.getElementById("checkSabado");
+            dia = "Sab";
+            break;
+        case document.getElementById("checkDomingo"):
+            // checkbox = document.getElementById("checkDomingo");
+            dia = "Dom";
+            break;
+    }
+    // return checkbox.checked;
+    return dia;
 }
 
 // Evento para validar la imagen al cargarla
@@ -81,23 +112,28 @@ newPlace[0].addEventListener('click', (event) => {
     if (!validarImagen()) {
 
     }
-    let correspondenciaDias = ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'];
+    const correspondenciaDias = ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'];
     let fechaActual = new Date();
-    let numeroDiaHoy = fechaActual.getDay();
+    let diaActual = correspondenciaDias[fechaActual.getDay()];
+    let estaAbierto = estaSeleccionado(diaActual);
+    let badgeClass = estaAbierto ? 'success' : 'danger';
+    let estado = estaAbierto ? 'Abierto' : 'Cerrado';
+
+
     
     // Crear un nuevo restaurante con los valores ingresados
     const nuevoRestaurante = document.createElement('div');
     nuevoRestaurante.classList.add('card');
     nuevoRestaurante.innerHTML = `
-    <img class="card-img-top" src="img/restaurant.jpg">
+    <img class="card-img-top" src="../img/rest1.jpg">
     <div class="card-body">
       <h5 class="card-title">${nombre}</h5>
       <p class="card-text">${descripcion}</p>
       <div class="card-text">
         <small class="text-muted">
-          <strong>Abre: </strong>${correspondenciaDias.filter(estaSeleccionado).join(', ')}
+          <strong>Abre: </strong>${correspondenciaDias.join(', ')}
         </small>
-        <span class="badge badge-${estaSeleccionado(correspondenciaDias[numeroDiaHoy]) ? 'success' : 'danger'}">${estaSeleccionado(correspondenciaDias[numeroDiaHoy]) ? 'Abierto' : 'Cerrado'}</span>
+        <span class="badge badge-${badgeClass}">${estado}</span>      
       </div>
       <div class="card-text">
         <small class="text-muted">
