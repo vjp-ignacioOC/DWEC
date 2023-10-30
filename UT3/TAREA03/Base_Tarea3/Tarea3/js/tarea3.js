@@ -180,13 +180,15 @@ newPlace[0].addEventListener('click', (event) => {
       <h5 class="card-title">${nombre}</h5>
       <p class="card-text">${descripcion}</p>
       <div class="card-text">
+        <span class="badge badge-success">Abierto</span>
         <small class="text-muted">
-          <strong>Abre: </strong>${openedDays()}
+            ${openedDays()}
         </small>
+        <br>
+        <span class="badge badge-danger">Cerrado</span> 
         <small class="text-muted">
-          <strong>Cierra: </strong>${closedDays()}
-        </small>
-        <span class="badge badge-${badgeClass}">${estado}</span>      
+            ${closedDays()}
+        </small>      
       </div>
       <div class="card-text">
         <small class="text-muted">
