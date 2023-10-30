@@ -81,6 +81,34 @@ function openedDays() {
     return result.join(', ')
 }
 
+function closedDays() {
+    let result = []
+
+    if (!document.getElementById("checkLunes").checked) {
+        result.push("Lun")
+    }
+    if (!document.getElementById("checkMartes").checked) {
+        result.push("Mar")
+    }
+    if (!document.getElementById("checkMiercoles").checked) {
+        result.push("Mie")
+    }
+    if (!document.getElementById("checkJueves").checked) {
+        result.push("Jue")
+    }
+    if (!document.getElementById("checkViernes").checked) {
+        result.push("Vie")
+    }
+    if (!document.getElementById("checkSabado").checked) {
+        result.push("Sab")
+    }
+    if (!document.getElementById("checkDomingo").checked) {
+        result.push("Dom")
+    }
+
+    return result.join(', ')
+}
+
 // Evento para validar la imagen al cargarla
 let foto = document.getElementById('foto');
 foto.addEventListener('change', (event) => {
@@ -154,6 +182,9 @@ newPlace[0].addEventListener('click', (event) => {
       <div class="card-text">
         <small class="text-muted">
           <strong>Abre: </strong>${openedDays()}
+        </small>
+        <small class="text-muted">
+          <strong>Cierra: </strong>${closedDays()}
         </small>
         <span class="badge badge-${badgeClass}">${estado}</span>      
       </div>
