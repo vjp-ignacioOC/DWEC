@@ -20,49 +20,70 @@ function validarTelefono(telefono) {
 }
 
 function validarImagen() {
-    return document.getElementById('imgPreview').src !== '';
+    return document.getElementById('imgPreview').src.includes("data:image");
 }
 
 // Función para verificar si un día específico está seleccionado
 function estaSeleccionado(dia) {
     let checkbox = "";
-    switch (checkbox) {
-        case document.getElementById("checkLunes"):
-            // checkbox = document.getElementById("checkLunes");
-            dia = "Lun";
+    switch (dia) {
+        case "Lun":
+            checkbox = document.getElementById("checkLunes");
             break;
-        case document.getElementById("checkMartes"):
-            // checkbox = document.getElementById("checkMartes");
-            dia = "Mar";
+        case "Mar":
+            checkbox = document.getElementById("checkMartes");
             break;
-        case document.getElementById("checkMiercoles"):
-            // checkbox = document.getElementById("checkMiercoles");
-            dia = "Mie";
+        case "Mie":
+            checkbox = document.getElementById("checkMiercoles");
             break;
-        case document.getElementById("checkJueves"):
-            // checkbox = document.getElementById("checkjueves");
-            dia = "Jue";
+        case "Jue":
+            checkbox = document.getElementById("checkjueves");
             break;
-        case document.getElementById("checkViernes"):
-            // checkbox = document.getElementById("checkViernes");
-            dia = "Vie";
+        case "Vie":
+            checkbox = document.getElementById("checkViernes");
             break;
-        case document.getElementById("checkSabado"):
-            // checkbox = document.getElementById("checkSabado");
-            dia = "Sab";
+        case "Sab":
+            checkbox = document.getElementById("checkSabado");
             break;
-        case document.getElementById("checkDomingo"):
-            // checkbox = document.getElementById("checkDomingo");
-            dia = "Dom";
+        case "Dom":
+            checkbox = document.getElementById("checkDomingo");
             break;
     }
-    // return checkbox.checked;
-    return dia;
+
+    return checkbox.checked;
+}
+
+function openedDays() {
+    let result = []
+
+    if (document.getElementById("checkLunes").checked) {
+        result.push("Lun")
+    }
+    if (document.getElementById("checkMartes").checked) {
+        result.push("Mar")
+    }
+    if (document.getElementById("checkMiercoles").checked) {
+        result.push("Mie")
+    }
+    if (document.getElementById("checkJueves").checked) {
+        result.push("Jue")
+    }
+    if (document.getElementById("checkViernes").checked) {
+        result.push("Vie")
+    }
+    if (document.getElementById("checkSabado").checked) {
+        result.push("Sab")
+    }
+    if (document.getElementById("checkDomingo").checked) {
+        result.push("Dom")
+    }
+
+    return result.join(', ')
 }
 
 // Evento para validar la imagen al cargarla
-    let foto = document.getElementById('foto');
-    foto.addEventListener('change', (event) => {
+let foto = document.getElementById('foto');
+foto.addEventListener('change', (event) => {
     const file = event.target.files[0];
     const reader = new FileReader();
     if (file) {
@@ -83,6 +104,7 @@ newPlace[0].addEventListener('click', (event) => {
     let descripcion = document.getElementById('descripcion').value;
     let cocina = document.getElementById('cocina').value;
     let telefono = document.getElementById('telefono').value;
+    let img = "../img/rest1.jpg"
 
     // Validar cada campo y mostrar mensajes de error si es necesario
     if (!validarNombre(nombre)) {
@@ -109,10 +131,11 @@ newPlace[0].addEventListener('click', (event) => {
         document.getElementById('telefono').classList.add('is-valid');
     }
 
-    if (!validarImagen()) {
-
+    if (validarImagen()) {
+        img = document.getElementById('imgPreview').src;
     }
-    const correspondenciaDias = ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'];
+
+    const correspondenciaDias = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'];
     let fechaActual = new Date();
     let diaActual = correspondenciaDias[fechaActual.getDay()];
     let estaAbierto = estaSeleccionado(diaActual);
@@ -120,18 +143,17 @@ newPlace[0].addEventListener('click', (event) => {
     let estado = estaAbierto ? 'Abierto' : 'Cerrado';
 
 
-    
     // Crear un nuevo restaurante con los valores ingresados
     const nuevoRestaurante = document.createElement('div');
     nuevoRestaurante.classList.add('card');
     nuevoRestaurante.innerHTML = `
-    <img class="card-img-top" src="../img/rest1.jpg">
+    <img class="card-img-top" src="${img}">
     <div class="card-body">
       <h5 class="card-title">${nombre}</h5>
       <p class="card-text">${descripcion}</p>
       <div class="card-text">
         <small class="text-muted">
-          <strong>Abre: </strong>${correspondenciaDias.join(', ')}
+          <strong>Abre: </strong>${openedDays()}
         </small>
         <span class="badge badge-${badgeClass}">${estado}</span>      
       </div>
