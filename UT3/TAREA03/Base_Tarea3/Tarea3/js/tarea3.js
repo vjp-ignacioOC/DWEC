@@ -15,7 +15,7 @@ function validarCocina(cocina) {
 }
 
 function validarTelefono(telefono) {
-    const regex2 = /^[0-9]{9}$/;
+    const regex2 = /^6[0-9]{8}$/;
     return regex2.test(telefono);
 }
 
@@ -180,15 +180,10 @@ newPlace[0].addEventListener('click', (event) => {
       <h5 class="card-title">${nombre}</h5>
       <p class="card-text">${descripcion}</p>
       <div class="card-text">
-        <span class="badge badge-success">Abierto</span>
         <small class="text-muted">
-            ${openedDays()}
-        </small>
-        <br>
-        <span class="badge badge-danger">Cerrado</span> 
-        <small class="text-muted">
-            ${closedDays()}
-        </small>      
+            <strong>Abre: </strong>${openedDays()}
+        </small>   
+        <span class="badge badge-${badgeClass}">${estado}</span>   
       </div>
       <div class="card-text">
         <small class="text-muted">
