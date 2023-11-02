@@ -22,8 +22,9 @@ function calcularValorMano(cartasDelJugador) {
 
     for (let i = 0; i < cartasDelJugador.length; i++) {
         if (cartasDelJugador[i] === '1') {
-            if (cartasDelJugador[i].value(0))
+            if (cartasDelJugador[i].value(0)) {
                 valorCarta = 1;
+            }
         }
         if (valorCarta[i] === 'Jota' || valorCarta[i] === 'Reina' || valorCarta[i] === 'Rey') {
             valorCarta = 10;
