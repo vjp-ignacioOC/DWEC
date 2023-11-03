@@ -32,7 +32,6 @@ function repartirCarta(mazo) {
 // En esta función, calculo el valor de las cartas del jugador o de la máquina
 function calcularValorMano(cartas) {
     let valor = 0;
-    let ases = 0;
 
     // Utilizo un bucle for of para calcular el valor de cada carta
     for (let carta of cartas) {
@@ -41,18 +40,16 @@ function calcularValorMano(cartas) {
         if (carta[0] === "Jota" || carta[0] === "Reina" || carta[0] === "Rey") {
             valor += 10;
         } else if (carta[0] === 1) {
-            valor += 11;
-            // Añado un as al contador de ases
-            ases++;
+            let valorAs = confirm("¿Quieres que tu as valga 11?");
+            if (valorAs) {
+                valor += 11;
+            } else {
+                valor += 1;
+            }
+
         } else {
             valor += carta[0];
         }
-    }
-
-    // Si el valor es de +21 y hay algún as en las cartas, le quito 10 a ese valor, es decir, el as cuenta como 1
-    while (valor > 21 && ases > 0) {
-        valor -= 10;
-        ases--;
     }
 
     return valor;
