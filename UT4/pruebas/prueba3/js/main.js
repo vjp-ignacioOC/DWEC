@@ -8,9 +8,12 @@ function pintaInfoMonumento(objetoMonumento) {
     return cadenaDeVuelta;
 }
 
+let corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
+let monumentosJson = "https://raw.githubusercontent.com/fsangar/backupOpendataCCJSON/master/monumentos.json";
+
 let peticionAjax = new XMLHttpRequest();
 peticionAjax.addEventListener("readystatechange", procesarPeticion);
-peticionAjax.open("GET",  "http://opendata.caceres.es/GetData/GetData?dataset=om:Monumento&format=json");
+peticionAjax.open("GET", corsAnywhere + monumentosJson);
 peticionAjax.send();
 
 function procesarPeticion(event) {
@@ -21,7 +24,8 @@ function procesarPeticion(event) {
 }
 
 function procesarResultado(objetoResultado) {
-    for (let monumento of objetoResultado.result.bindings) {
-        console.log(pintaInfoMonumento(monumento));
-    }
+    // for (let monumento of objetoResultado.result) {
+    //     console.log(pintaInfoMonumento(monumento));
+    // }
+    console.log(objetoResultado);
 }
