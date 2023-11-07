@@ -1,19 +1,20 @@
-function pintaInfoMonumento(objetoMonumento) {
-    let cadenaDeVuelta = "" ;
-    cadenaDeVuelta += "Nombre " + objetoMonumento.rdfs_label.value + "\n";
-    cadenaDeVuelta += "Tipo monumento " + objetoMonumento.om_tipoMonumento.value + "\n";
-    cadenaDeVuelta += "Latitud " + objetoMonumento.geo_lat.value + "\n";
-    cadenaDeVuelta += "Longitud " + objetoMonumento.geo_long.value + "\n";
-    cadenaDeVuelta += "Uri " + objetoMonumento.uri.value;
-    return cadenaDeVuelta;
-}
+// function pintaInfoMonumento(objetoMonumento) {
+//     let cadenaDeVuelta = "" ;
+//     cadenaDeVuelta += "Nombre " + objetoMonumento.rdfs_label.value + "\n";
+//     cadenaDeVuelta += "Tipo monumento " + objetoMonumento.om_tipoMonumento.value + "\n";
+//     cadenaDeVuelta += "Latitud " + objetoMonumento.geo_lat.value + "\n";
+//     cadenaDeVuelta += "Longitud " + objetoMonumento.geo_long.value + "\n";
+//     cadenaDeVuelta += "Uri " + objetoMonumento.uri.value;
+//     return cadenaDeVuelta;
+// }
 
-let corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
-let monumentosJson = "https://raw.githubusercontent.com/fsangar/backupOpendataCCJSON/master/monumentos.json";
+// let corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
+// let monumentosJson = "https://raw.githubusercontent.com/fsangar/backupOpendataCCJSON/master/monumentos.json";
+let monumentosJson = "https://collectionapi.metmuseum.org/public/collection/v1/objects";
 
 let peticionAjax = new XMLHttpRequest();
 peticionAjax.addEventListener("readystatechange", procesarPeticion);
-peticionAjax.open("GET", corsAnywhere + monumentosJson);
+peticionAjax.open("GET", monumentosJson);
 peticionAjax.send();
 
 function procesarPeticion(event) {
