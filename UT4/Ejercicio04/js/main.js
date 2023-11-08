@@ -1,4 +1,4 @@
-let corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
+//let corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
 let ergastJson = 'http://ergast.com/api/f1/2004/1/results.json';
 
 document.getElementById("boton").addEventListener("click", function () {
@@ -13,7 +13,7 @@ function cargarDatos() {
             mostrarEnTabla(datos);
         }
     });
-    peticionAjax.open("GET", corsAnywhere + ergastJson);
+    peticionAjax.open("GET", /* corsAnywhere + */ ergastJson);
     peticionAjax.send();
 }
 
