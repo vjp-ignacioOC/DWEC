@@ -5,8 +5,12 @@ document.getElementById("boton").addEventListener("click", function () {
     cargarDatos();
 });
 
+    // document.getElementById("boton").addEventListener('dblclick', function() {
+    //     let tabla = document.querySelector("#tabla tbody");
+    //     tabla.reset();
+    // });
+let peticionAjax = new XMLHttpRequest();
 function cargarDatos() {
-    let peticionAjax = new XMLHttpRequest();
     peticionAjax.addEventListener("load", function () {
         if (peticionAjax.readyState === 4 && peticionAjax.status === 200) {
             let datos = JSON.parse(peticionAjax.responseText);
@@ -35,3 +39,4 @@ function mostrarEnTabla(datos) {
     // Agregar los datos a la tabla en el cuerpo de la tabla
     document.querySelector("#tabla tbody").innerHTML = tabla;
 }
+
