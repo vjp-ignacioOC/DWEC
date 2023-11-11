@@ -92,10 +92,43 @@ console.log(coche.getInfo());
 // incluido su director y sus actores.
 
 let obraTeatro = {
-  titulo: "tituloObra",
-  fechaEstreno: "1-1-2024",
-  director: {
+    titulo: "tituloObra",
+    fechaEstreno: "1-1-2024",
+    director: {
+        nombre: "nombreDirector",
+        apellidos: "apellidosDirector",
+        nacimiento: 1980,
+        obras: ["obra1", "obra2", "obra3"]
+    },
+    listaActores: [
+        {
+            nombre: "actor1",
+            edad: 30,
+            vecesRepresentada: 5
+        },
+        {
+            nombre: "actor2",
+            edad: 25,
+            vecesRepresentada: 3
+        },
+        {
+            nombre: "actor3",
+            edad: 35,
+            vecesRepresentada: 7
+        }
+    ],
+    getInfo() {
+        let infoActores = this.listaActores.map(actor => {
+            return actor.nombre + " (Edad: " + actor.edad + ", Representaciones: " + actor.vecesRepresentada + ")";
+        }).join(", ");
 
-  },
-  lista: []
+        return "Obra de teatro: " + this.titulo +
+            "\nFecha de estreno: " + this.fechaEstreno +
+            "\nDirector: " + this.director.nombre + " " + this.director.apellidos +
+            "\nNacimiento del director: " + this.director.nacimiento +
+            "\nObras del director: " + this.director.obras.join(", ") +
+            "\nActores: " + infoActores;
+    }
 };
+
+console.log(obraTeatro.getInfo());
