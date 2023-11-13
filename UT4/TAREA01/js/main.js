@@ -11,9 +11,11 @@ let discoMusica = {
     anio: "2023",
     numVentas: "100",
     getInfo() {
-        return "El disco " + this.titulo + " del artista " + this.autor + " en el año " + this.anio + " tuvo un total de ventas de " +this.numVentas
+        return "El disco " + this.titulo + " del artista " + this.autor + " en el año " + +this.anio + " tuvo un total de ventas de " + +this.numVentas;
     }
 };
+
+console.log(discoMusica.getInfo());
 
 // Una calle de una ciudad:
 // Dicha calle debe tener un nombre (string), la longitud (entero)
@@ -37,9 +39,96 @@ let calle = {
         }
     ],
     getInfo() {
-        return "En la calle " + this.nombre + ", con una longitud de " + this.longitud + " metros, tiene los siguientes establecimientos: " + calle.establecimientos[0].nombreEst + ", " +  calle.establecimientos[1].nombreEst + " y " + calle.establecimientos[2].nombreEst;
+        return "En la calle " + this.nombre + ", con una longitud de " + +this.longitud + " metros, tiene los siguientes establecimientos: " + calle.establecimientos[0].nombreEst + ", " +  calle.establecimientos[1].nombreEst + " y " + calle.establecimientos[2].nombreEst;
     }
 };
 
 console.log(calle.getInfo());
 
+// Un coche:
+// Que debe tener un modelo (string), un dueño (un objeto)
+// y una marca (un objeto).
+// Para el dueño debe almacenarse su nombre (string) y su edad (entero).
+// Para la marca se debe guardar su nombre (un string)
+// y el año de creación de la marca (entero).
+// Debes crear también el método getInfo()
+// para el coche que devuelva información sobre el coche,
+// su dueño y su marca como una cadena.
+
+let coche = {
+  modelo: "modeloCoche",
+  duenio: {
+      nombre: "dueño1",
+      edad: "25"
+  },
+  marca: {
+      nombre: "marca1",
+      creacion: "2020"
+    },
+  getInfo() {
+    return "El coche " + this.modelo + " pertenece a " + this.duenio.nombre + " y se creó en el año " + +this.marca.creacion;
+  }
+};
+
+console.log(coche.getInfo());
+
+// Una obra de teatro:
+// Debe almacenar información sobre el título de la obra (string),
+// su fecha de estreno (string),
+// su director (un objeto) y una lista (array)
+// de todos sus actores (objetos) (al menos debe haber 3 actores).
+//
+// Del director se debe guardar información sobre su nombre (string),
+// apellidos(string), nacimiento(entero),
+// y una lista(array) con los títulos de algunas de sus obras (al menos 3).
+//
+// De los actores se debe guardar información de su nombre (string),
+// de su edad(entero)
+// y del número de veces que han representado la actuación (entero).
+//
+// Hay que crearse el método getInfo
+// para la obra de teatro que devuelva por pantalla
+// toda la información sobre una obra de teatro,
+// incluido su director y sus actores.
+
+let obraTeatro = {
+    titulo: "tituloObra",
+    fechaEstreno: "1-1-2024",
+    director: {
+        nombre: "nombreDirector",
+        apellidos: "apellidosDirector",
+        nacimiento: 1980,
+        obras: ["obra1", "obra2", "obra3"]
+    },
+    listaActores: [
+        {
+            nombre: "actor1",
+            edad: 30,
+            vecesRepresentada: 5
+        },
+        {
+            nombre: "actor2",
+            edad: 25,
+            vecesRepresentada: 3
+        },
+        {
+            nombre: "actor3",
+            edad: 35,
+            vecesRepresentada: 7
+        }
+    ],
+    getInfo() {
+        let infoActores = this.listaActores.map(actor => {
+            return actor.nombre + " (Edad: " + actor.edad + ", Representaciones: " + actor.vecesRepresentada + ")";
+        }).join(", ");
+
+        return "Obra de teatro: " + this.titulo +
+            "\nFecha de estreno: " + this.fechaEstreno +
+            "\nDirector: " + this.director.nombre + " " + this.director.apellidos +
+            "\nNacimiento del director: " + this.director.nacimiento +
+            "\nObras del director: " + this.director.obras.join(", ") +
+            "\nActores: " + infoActores;
+    }
+};
+
+console.log(obraTeatro.getInfo());
