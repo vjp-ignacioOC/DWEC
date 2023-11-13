@@ -22,3 +22,4 @@ function cuandoNoSeCumple (valorDesdeReject) {
 
 prometoLimpiar.then(cuandoFunciona).catch(cuandoNoSeCumple);
 
+
