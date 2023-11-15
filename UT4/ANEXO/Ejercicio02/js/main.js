@@ -32,7 +32,9 @@ function traerRecurso (url) {
     });
 }
 
-traerRecurso("http://ergast.com/api/f1/2004/1/results.json").then(function (respuesta) {
-    console.log(respuesta)
-}).catch(function (error) {
-    console.log(error)});
+// traerRecurso("http://ergast.com/api/f1/2004/1/results.json").then(function (respuesta) {
+//     console.log(respuesta)
+// }).catch(function (error) {
+//     console.log(error)});
+
+traerRecurso("http://ergast.com/api/f1/2004/1/results.json").then(respuesta => console.log(respuesta)).catch(error => console.log(error));
