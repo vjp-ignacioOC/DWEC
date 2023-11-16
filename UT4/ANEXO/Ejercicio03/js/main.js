@@ -1,5 +1,5 @@
 let corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
-let ergastJson = 'http://opendata.caceres.es/GetData/GetData?dataset=om:Museo&format=json';
+let ergastJson = 'https://raw.githubusercontent.com/fsangar/backupOpendataCCJSON/master/monumentos.json';
 
 document.getElementById("boton").addEventListener("click", function () {
     cargarDatos();
@@ -17,7 +17,7 @@ function cargarDatos() {
             mostrarEnTabla(datos);
         }
     });
-    peticionAjax.open("GET", corsAnywhere + ergastJson);
+    peticionAjax.open("GET", ergastJson);
     peticionAjax.send();
 }
 
