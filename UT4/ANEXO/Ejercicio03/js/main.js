@@ -11,6 +11,7 @@ document.getElementById("boton").addEventListener("click", function () {
 // });
 let peticionAjax = new XMLHttpRequest();
 function cargarDatos() {
+
     peticionAjax.addEventListener("load", function () {
         if (peticionAjax.readyState === 4 && peticionAjax.status === 200) {
             let datos = JSON.parse(peticionAjax.responseText);
