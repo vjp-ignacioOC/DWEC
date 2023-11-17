@@ -22,23 +22,19 @@ function cargarDatos() {
 }
 
 function mostrarEnTabla(datos) {
-    let tabla = '';
+    let tabla = ``;
 
-        let museos = datos.results.bindings;
-        tabla += '<tr><td>Nombre</td><td>Latitud</td><td>Longitud</td><td>Url</td></tr>'
-        for (let i = 0; i < museos.length; i++) {
-            for (let j = 0; j < museos.length; j++) {
-                let museo = museos[i];
-                let nombre = museos.rdfs_label;
-                let latitud = museos.geo_lat;
-                let longitud = museos.geo_long;
-                let url = museos.uri;
-                tabla += `<tr><td>${j+1}</td><td>${nombre}</td><td>${latitud}</td><td>${longitud}</td><td>${url}</td></tr>`;
-            }
-        }
+    let museos = datos.results.bindings;
+    for (let j = 0; j < museos.length; j++) {
+        let nombre = museos[j].rdfs_label.value;
+        let latitud = museos[j].geo_lat.value;
+        let longitud = museos[j].geo_long.value;
+        let url = museos[j].uri.value;
+        tabla += `<tr><td>${nombre}</td><td>${latitud}</td><td>${longitud}</td><td>${url}</td></tr>`;
+    }
 
-        // Agregar los datos a la tabla en el cuerpo de la tabla
-        document.querySelector("#contenedorTabla").innerHTML = tabla;
+    // Agregar los datos a la tabla en el cuerpo de la tabla
+    document.querySelector("#tabla tbody").innerHTML = tabla;
     }
 
 
