@@ -1,4 +1,4 @@
-let corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
+//let corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
 let ergastJson = 'https://raw.githubusercontent.com/fsangar/backupOpendataCCJSON/master/monumentos.json';
 
 document.getElementById("boton").addEventListener("click", function () {
@@ -23,25 +23,23 @@ function cargarDatos() {
 
 function mostrarEnTabla(datos) {
     let tabla = '';
-    let museos = datos.rdfs_label;
-    let nombre = '';
-    let latitud = '';
-    let longitud = '';
-    let url = '';
-    tabla += '<tr><th>Nombre</th><th>Latitud</th><th>Longitud</th><th>Url</th></tr>'
-    for (let i = 0; i < museos.length; i++) {
-        let resultados = museos[i].results;
-        for (let j = 0; j < resultados.length; j++) {
-            nombre = resultados[j];
-            latitud = resultado.geo_lat ;
-            longitud = resultado.geo_long ;
-            url = resultado.uri;
 
-            tabla += `<tr><td>${j+1}</td><td>${nombre}</td><td>${latitud}</td><td>${longitud}</td><td>${url}</td></tr>`;
+        let museos = datos.results.bindings;
+        tabla += '<tr><td>Nombre</td><td>Latitud</td><td>Longitud</td><td>Url</td></tr>'
+        for (let i = 0; i < museos.length; i++) {
+            for (let j = 0; j < museos.length; j++) {
+                let museo = museos[i];
+                let nombre = museos.rdfs_label;
+                let latitud = museos.geo_lat;
+                let longitud = museos.geo_long;
+                let url = museos.uri;
+                tabla += `<tr><td>${j+1}</td><td>${nombre}</td><td>${latitud}</td><td>${longitud}</td><td>${url}</td></tr>`;
+            }
         }
+
+        // Agregar los datos a la tabla en el cuerpo de la tabla
+        document.querySelector("#contenedorTabla").innerHTML = tabla;
     }
 
-    // Agregar los datos a la tabla en el cuerpo de la tabla
-    document.querySelector("#contenedorTabla").innerHTML = tabla;
-}
+
 
