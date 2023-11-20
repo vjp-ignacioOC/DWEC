@@ -32,12 +32,7 @@ document.getElementById("boton").addEventListener("click", function () {
 function cargarDatos() {
     return new Promise((resolve, reject) => {
         fetch(ergastJson)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Error de red - ${response.status}`);
-                }
-                return response.json();
-            })
+            .then(response => response.json())
             .then(datos => resolve(datos))
             .catch(error => reject(error));
     });
