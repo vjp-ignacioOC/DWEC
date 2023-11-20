@@ -7,11 +7,11 @@ class Museo {
     }
 
     getInfo() {
-        console.log(`Nombre: ${this.nombre}\nLatitud: ${this.latitud}\nLongitud: ${this.longitud}\nURL: ${this.url}`);
+        console.log("Nombre: " + this.nombre + "\nLatitud: " + this.latitud + "\nLongitud: " + this.longitud + "\nURL: " + this.url);
     }
 
     getDivInfo() {
-        const div = document.createElement("div");
+        let div = document.createElement("div");
         div.innerHTML = `<p><strong>Nombre:</strong> ${this.nombre}</p>
                      <p><strong>Latitud:</strong> ${this.latitud}</p>
                      <p><strong>Longitud:</strong> ${this.longitud}</p>
@@ -65,14 +65,14 @@ function mostrarMuseos(museos) {
     const contenedorMuseos = document.getElementById("contenedorMuseos");
 
     // Agregar filas a la tabla
-    const tabla = document.querySelector("#tabla tbody");
+    let tabla = document.querySelector("#tabla tbody");
 
     museos.forEach(museo => {
         museo.getInfo(); // Mostrar información por consola
         contenedorMuseos.appendChild(museo.getDivInfo()); // Mostrar información en un div
 
         // Agregar fila a la tabla
-        const fila = `<tr>
+        let fila = `<tr>
                         <td>${museo.nombre}</td>
                         <td>${museo.latitud}</td>
                         <td>${museo.longitud}</td>
