@@ -59,7 +59,7 @@ function cargarDatos() {
 }
 
 function mostrarEnTabla(datos) {
-    let tabla = ``;
+    let tabla = `<thead><tr><td>Nombre</td><td>Latitud</td><td>Longitud</td><td>URL</td></tr></thead>`;
 
     let museos = datos.results.bindings;
     for (let j = 0; j < museos.length; j++) {
