@@ -44,19 +44,23 @@
 let ergastJson = 'https://raw.githubusercontent.com/fsangar/backupOpendataCCJSON/master/monumentos.json';
 
 document.getElementById("boton").addEventListener("click", function () {
-    cargarDatos()
+    fetch(ergastJson)
+        .then(response => response.json())
         .then(datos => mostrarEnTabla(datos))
-        .catch(error => console.log(error));
+        .catch(error => reject(error));
+    // cargarDatos()
+    //     .then(datos => mostrarEnTabla(datos))
+    //     .catch(error => console.log(error));
 });
 
-function cargarDatos() {
-    return new Promise((resolve, reject) => {
-        fetch(ergastJson)
-            .then(response => response.json())
-            .then(datos => resolve(datos))
-            .catch(error => reject(error));
-    });
-}
+// function cargarDatos() {
+//     return new Promise((resolve, reject) => {
+//         fetch(ergastJson)
+//             .then(response => response.json())
+//             .then(datos => resolve(datos))
+//             .catch(error => reject(error));
+//     });
+// }
 
 function mostrarEnTabla(datos) {
     let tabla = `<thead><tr><td>Nombre</td><td>Latitud</td><td>Longitud</td><td>URL</td></tr></thead>`;
