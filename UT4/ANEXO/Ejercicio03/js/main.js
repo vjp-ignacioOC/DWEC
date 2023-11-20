@@ -1,25 +1,66 @@
-//let corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
+// //let corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
+// let ergastJson = 'https://raw.githubusercontent.com/fsangar/backupOpendataCCJSON/master/monumentos.json';
+//
+// document.getElementById("boton").addEventListener("click", function () {
+//     cargarDatos();
+// });
+//
+// // document.getElementById("boton").addEventListener('dblclick', function() {
+// //     let tabla = document.querySelector("#tabla tbody");
+// //     tabla.reset();
+// // });
+// let peticionAjax = new XMLHttpRequest();
+// function cargarDatos() {
+//
+//     peticionAjax.addEventListener("load", function () {
+//         if (peticionAjax.readyState === 4 && peticionAjax.status === 200) {
+//             let datos = JSON.parse(peticionAjax.responseText);
+//             mostrarEnTabla(datos);
+//         }
+//     });
+//     peticionAjax.open("GET", ergastJson);
+//     peticionAjax.send();
+// }
+//
+// function mostrarEnTabla(datos) {
+//     let tabla = ``;
+//
+//     let museos = datos.results.bindings;
+//     for (let j = 0; j < museos.length; j++) {
+//         let nombre = museos[j].rdfs_label.value;
+//         let latitud = museos[j].geo_lat.value;
+//         let longitud = museos[j].geo_long.value;
+//         let url = museos[j].uri.value;
+//         tabla += `<tr><td>${nombre}</td><td>${latitud}</td><td>${longitud}</td><td>${url}</td></tr>`;
+//     }
+//
+//     // Agregar los datos a la tabla en el cuerpo de la tabla
+//     document.querySelector("#tabla tbody").innerHTML = tabla;
+//     }
+
+
+
+// Código con promesas
 let ergastJson = 'https://raw.githubusercontent.com/fsangar/backupOpendataCCJSON/master/monumentos.json';
 
 document.getElementById("boton").addEventListener("click", function () {
-    cargarDatos();
+    cargarDatos()
+        .then(datos => mostrarEnTabla(datos))
+        .catch(error => console.log(error));
 });
 
-// document.getElementById("boton").addEventListener('dblclick', function() {
-//     let tabla = document.querySelector("#tabla tbody");
-//     tabla.reset();
-// });
-let peticionAjax = new XMLHttpRequest();
 function cargarDatos() {
-
-    peticionAjax.addEventListener("load", function () {
-        if (peticionAjax.readyState === 4 && peticionAjax.status === 200) {
-            let datos = JSON.parse(peticionAjax.responseText);
-            mostrarEnTabla(datos);
-        }
+    return new Promise((resolve, reject) => {
+        fetch(ergastJson)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Error de red - ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(datos => resolve(datos))
+            .catch(error => reject(error));
     });
-    peticionAjax.open("GET", ergastJson);
-    peticionAjax.send();
 }
 
 function mostrarEnTabla(datos) {
@@ -36,7 +77,4 @@ function mostrarEnTabla(datos) {
 
     // Agregar los datos a la tabla en el cuerpo de la tabla
     document.querySelector("#tabla tbody").innerHTML = tabla;
-    }
-
-
-
+}
