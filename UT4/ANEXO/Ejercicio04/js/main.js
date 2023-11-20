@@ -41,11 +41,11 @@ function cargarDatos() {
 function convertirAMuseos(datos) {
     return new Promise((resolve, reject) => {
         try {
-            const museos = datos.results.bindings.map(museo => {
-                const nombre = museo.rdfs_label.value;
-                const latitud = museo.geo_lat.value;
-                const longitud = museo.geo_long.value;
-                const url = museo.uri.value;
+            let museos = datos.results.bindings.map(museo => {
+                let nombre = museo.rdfs_label.value;
+                let latitud = museo.geo_lat.value;
+                let longitud = museo.geo_long.value;
+                let url = museo.uri.value;
                 return new Museo(nombre, latitud, longitud, url);
             });
             resolve(museos);
