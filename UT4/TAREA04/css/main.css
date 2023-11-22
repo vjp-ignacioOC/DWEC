@@ -1,16 +1,16 @@
-.entrada{
+#contenedorEntradas{
     background-color: #fffed4;
     border: 1px solid #b3d4fc;
     margin-bottom: 10px;
 }
 
-.entrada > p:nth-child(1){
+#contenedorEntradas > div > p:nth-child(1){
     background-color: #222222;
     padding: 10px;
     color: #e5e5e5;
 }
 
-.entrada > div{
+#contenedorEntradas > div{
     padding: 10px;
 }
 
