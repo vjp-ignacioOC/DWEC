@@ -14,7 +14,7 @@ app.use(cors({
 var url = "/tasks";
 
 // Abrimos el puerto de escucha al 3000 y una vez abierto mostramos un mensaje.
-app.listen(3000, () => console.log("El servidor está escuchando en el puerto 3000, Ignacio Ormaeche"));
+app.listen(3000, () => console.log("El servidor está escuchando en el puerto 3000"));
 
 // Creamos una variable JSON
 var destinosFichero = "db/tasks.json";
