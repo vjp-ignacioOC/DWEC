@@ -11,13 +11,13 @@ app.use(cors({
     origin: 'http://localhost:4200'
 }));
 
-var url = "/prueba";
+var url = "/tasks";
 
 // Abrimos el puerto de escucha al 3000 y una vez abierto mostramos un mensaje.
 app.listen(3000, () => console.log("El servidor está escuchando en el puerto 3000, Ignacio Ormaeche"));
 
 // Creamos una variable JSON
-var destinosFichero = "db/prueba.json";
+var destinosFichero = "db/tasks.json";
 // Leemos el listado de destinos almacenados en JSON
 var misDestinos = JSON.parse(fs.readFileSync(destinosFichero));
 
