@@ -43,7 +43,6 @@ function crearEntrada() {
 
 }
 
-
 function seleccionarEntradas(event) {
     let colorOriginal = '';
     if (event.target.tagName === 'LI') {
