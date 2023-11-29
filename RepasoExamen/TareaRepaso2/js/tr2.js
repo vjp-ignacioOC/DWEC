@@ -13,6 +13,7 @@ let botonCrear = document.getElementById("creaEntrada");
 
 
 function crearEntrada() {
+    //Añadimos el evento de, cuando escribamos algo en el input, cree la nueva entrada y la suba al contenedor izquierdo
     botonCrear.addEventListener('click', function () {
         let nuevoLi = document.createElement('li');
         nuevoLi.innerHTML = `${inputTexto.value}`;
@@ -25,6 +26,7 @@ function crearEntrada() {
         }
     });
 
+    // Llamamos al método seleccionar para, cuando hagas click, que se seleccionen
     contIzquierda.addEventListener('click', function(event) {
         seleccionarEntradas(event)
     });
@@ -33,6 +35,7 @@ function crearEntrada() {
         seleccionarEntradas(event)
     });
 
+    // Llamamos al método cambiarEntradas para, todas aquellas que estén seleccionadas, se cambien según el botón al que le des
     botonDer.addEventListener('click', function (){
         cambiarEntradasDeLado(contDerecha)
     });
