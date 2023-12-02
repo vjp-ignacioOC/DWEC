@@ -26,11 +26,10 @@ function crearEntrada() {
         }
     });
 
-    // Llamamos al método seleccionar para, cuando hagas click, que se seleccionen
+    // Llamamos al método seleccionar para, cuando hagas click, que se seleccionen y se pinten de rojo
     contIzquierda.addEventListener('click', function(event) {
         seleccionarEntradas(event)
     });
-
     contDerecha.addEventListener('click', function(event) {
         seleccionarEntradas(event)
     });
@@ -39,31 +38,54 @@ function crearEntrada() {
     botonDer.addEventListener('click', function (){
         cambiarEntradasDeLado(contDerecha)
     });
-
     botonIzq.addEventListener('click', function () {
         cambiarEntradasDeLado(contIzquierda)
     });
+
+    //Limpiamos todos las palabras seleccionados
+    botonLimpiar.addEventListener('click', function () {
+        limpiarSeleccionados()
+    });
+
+    //Borramos cualquier elemento
+    contIzquierda.addEventListener('dblclick', function(event) {
+        borrarElemento(event);
+    })
+    contDerecha.addEventListener('dblclick', function(event) {
+        borrarElemento(event);
+    })
 
 }
 
 function seleccionarEntradas(event) {
     let colorOriginal = '';
     if (event.target.tagName === 'LI') {
-        if (event.target.style.backgroundColor === 'red') {
-            event.target.style.backgroundColor = colorOriginal;
-            event.target.classList.remove('.seleccionado');
+        if (event.target.classList.contains('seleccionado')) {
+            event.target.classList.remove('seleccionado');
         } else {
-            event.target.style.backgroundColor = 'red';
-            event.target.classList.add('.seleccionado');
+            event.target.classList.add('seleccionado');
         }
     }
 }
 
 function cambiarEntradasDeLado(contenedor) {
-    const listado = document.querySelectorAll("li[class*=seleccionado]");
-    for (let i = 0; listado.length; i++) {
+    let listado = document.querySelectorAll("li[class*=seleccionado]");
+    for (let i = 0; i < listado.length; i++) {
         contenedor.appendChild(listado[i]);
     }
+}
+
+function limpiarSeleccionados() {
+    let listado = document.querySelectorAll("li[class*=seleccionado]");
+    let colorOriginal = '';
+    for (let i = 0; i < listado.length; i++) {
+        listado[i].classList.remove('seleccionado');
+        listado[i].style.backgroundColor = colorOriginal;
+    }
+}
+
+function borrarElemento(event) {
+    event.target.remove();
 }
 
 crearEntrada()
