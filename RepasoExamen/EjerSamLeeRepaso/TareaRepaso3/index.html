@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tarea 3</title>
+    </head>
+    <body style="background-color: teal;">
+        <h2 style="text-align: center; color: bisque;">Consulta de cosas</h2>
+        <p>API => Es una API que genera datos de personas inventadas</p>
+
+        <div class="buscador" style="display: flex; flex-direction: column; justify-items: center; width: 40vw;margin: auto;color: bisque;">
+            <button id="botonNombres">Mostrar nombres</button>
+            <ul id="listaNombres">
+                
+            </ul>
+
+            <label for="edad">Buscar personas que tengan menos de:</label>
+            <input type="text" id="edad">
+            <button id="botonEdad">Buscar</button>
+            <ul id="listaEdad">
+
+            </ul>
+
+            <label for="nacion">Buscar por nacionalidad:</label>
+            <input type="text" id="nacion">
+            <button id="botonNacion">Buscar</button>
+            <ul id="listaNacion">
+
+            </ul>
+        </div>
+        <script src="js/main.js"></script>
+    </body>
+</html>
