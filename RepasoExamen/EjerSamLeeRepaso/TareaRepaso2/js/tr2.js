@@ -108,10 +108,10 @@ function seleccionarContenido(event) {
  * - por parámetros.
  */
 function mover(contenedor) {
-    let listasSelecciondos = document.querySelectorAll('li[class*=seleccionado]');
+    let listasSeleccionados = document.querySelectorAll('li[class*=seleccionado]');
 
-    for (let i = 0; i < listasSelecciondos.length; i++) {
-        contenedor.appendChild(listasSelecciondos[i]);
+    for (let i = 0; i < listasSeleccionados.length; i++) {
+        contenedor.appendChild(listasSeleccionados[i]);
     }
 
 }
