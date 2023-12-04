@@ -54,7 +54,7 @@ function mostrarInfo(pers) {
     })
 }
 
-function mostrarTitulo(posts) {
+function mostrarId(posts) {
     posts.results.forEach (elemento => {
         let post = new Post(elemento);
         crearLi(post, listaNombre);
