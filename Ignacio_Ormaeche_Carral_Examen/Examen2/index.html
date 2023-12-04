@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Examen 2</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/css.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Consulta Pasos de Semana Santa</h1>
+
+        <button id="botonNombre">Mostrar nombres de todos los pasos de Semana Santa</button>
+        <ul id="contenedorNombres"></ul>
+
+
+
+        <button id="botonFotos">Mostrar fotos de los pasos</button>
+        <div id="contenedorFotos"></div>
+
+
+        <label for="filtrarNombre" class="pt-5">Nombre:</label>
+        <input id="filtrarNombre"type="text" style="width: 300px;" placeholder="Cadena con nombre"/>
+        <button id="botonFiltrarNombre">Mostrar los pasos por nombre</button>
+        <ul id="contenedorNombresFiltrados"></ul>
+
+
+    </div>
+    <script src="js/examen2-ajax.js"></script>
+    <script src="js/examen2-json.js"></script>
+</body>
+</html>

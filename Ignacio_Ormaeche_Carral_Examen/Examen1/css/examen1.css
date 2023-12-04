@@ -1,0 +1,44 @@
+
+
+.alto-400{
+    min-height: 400px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.centrado{
+    text-align: center;
+}
+
+.ancho-entero{
+    width:98%;
+}
+
+.cursor:hover{
+    cursor: pointer;
+}
+
+.casi-mitad{
+    width: 45%;
+}
+
+.contenedorBarra{
+    width: 80%;
+}
+
+.textoBarra{
+    width: 20%;
+}
+
+.borde-fuerte{
+    border: 2px solid #2c000f;
+    border-radius: 8px;
+
+}
+
+
+.barra{
+    transition: all 1s;
+    border-radius: 5px;
+}
+
