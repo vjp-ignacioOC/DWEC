@@ -2,6 +2,7 @@
 /
 
 / Recogida de campos */
+// el botón de nombre muestra el contenido de los posts
 let botonNombre = document.getElementById("botonNombres");
 let listaNombre = document.getElementById("listaNombres");
 
@@ -16,10 +17,10 @@ let listaNacion = document.getElementById("listaNacion");
 const urlJson = 'https://jsonplaceholder.typicode.com/posts';
 class Post {
     constructor(post) {
-        this.id = objPost.id;
-        this.userId = objPost.userId;
-        this.titulo = objPost.title;
-        this.contenido = objPost.body;
+        this.id = post.id;
+        this.userId = post.userId;
+        this.titulo = post.title;
+        this.contenido = post.body;
     }
 
     getId() {
@@ -42,23 +43,26 @@ cargarNombrePersonas();
 function cargarNombrePersonas() {
     fetch(urlJson)
         .then(response => response.json())
-        .then(pers => {
-            mostrarInfo(pers);
+        .then(posts => {
+            botonNombre.addEventListener('click', function () {
+                mostrarContenido(posts);
+            })
         })
         .catch(error=>console.log(error.message));
 }
 
-function mostrarInfo(pers) {
-    botonNombre.addEventListener('click', function () {
-        mostrarNombre(pers)
-    })
-}
+// function mostrarInfo(post) {
+//     botonNombre.addEventListener('click', function () {
+//         mostrarContenido(post)
+//     })
+// }
 
-function mostrarId(posts) {
-    posts.results.forEach (elemento => {
-        let post = new Post(elemento);
+function mostrarContenido(posts) {
+    for (let i = 0; i < posts.length; i++) {
+        let post = new Post(posts[i]);
         crearLi(post, listaNombre);
-    })
+    }
+
 }
 
 function crearLi(post, ul) {
