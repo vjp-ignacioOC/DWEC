@@ -52,7 +52,7 @@ let ordenador = {
         console.log(`Dispositivos: `);
         this.serieDispositivos.forEach(element => {
             console.log(`       Nombre: ${element.nombre}`);
-            console.log(`       Precio: ${element.precio}`);
+            console.log(`       Precio: ${element.precio}€`);
             console.log(`       Conector: ${element.conector}`);
             console.log('');
         });
