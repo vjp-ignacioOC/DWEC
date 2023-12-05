@@ -28,7 +28,12 @@ bResetear.addEventListener('click', function() {
 
 // Le damos funcionalidad al boton de cambiar ajustes, llamando a la funcion cambiarAjustes
 bCambiar.addEventListener('click', function () {
-    cambiarAjustes();
+    if (selectPorcentaje.value > 100 || selectPorcentaje.value < 0) {
+        alert('error');
+    }else {
+        cambiarAjustes();
+    }
+
 })
 
 
