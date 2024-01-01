@@ -23,7 +23,14 @@ let barra4 = document.getElementById("barra4");
 
 // Le damos funcionalidad al botón de reset que, cuando pulses, recargue la página entera
 bResetear.addEventListener('click', function() {
-    window.location.reload();
+    barra1.style.backgroundColor = 'grey';
+    barra1.style.width = '50%';
+    barra2.style.backgroundColor = 'grey';
+    barra2.style.width = '50%';
+    barra3.style.backgroundColor = 'grey';
+    barra3.style.width = '50%';
+    barra4.style.backgroundColor = 'grey';
+    barra4.style.width = '50%';
 })
 
 // Le damos funcionalidad al boton de cambiar ajustes, llamando a la funcion cambiarAjustes
@@ -78,7 +85,7 @@ function cambiarAjustes() {
     } else {
         seleccionado.style.backgroundColor = 'yellow';
     }
-    // Entiendo que aquí debería ir un if() para que saltase una alerta cuando fuese mayor al 100%,pero no sé por qué no soy capaz de que me salga bien
+
     seleccionado.style.width = selectPorcentaje.value + '%';
 
 }
@@ -89,4 +96,3 @@ function reiniciarBarra(event) {
     event.target.style.width = '50%';
 }
 
-//Está un pocochapucero, la verdad, soy consciente, pero bueno, quitando el alert, todo lo demás está hecho.
