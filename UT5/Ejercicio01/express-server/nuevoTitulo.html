@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Agregar Título</title>
+</head>
+<body>
+
+<ul>
+    <li><a href="index.html">Página principal</a></li>
+    <li><a href="modificarTitulo.html">Modificar titulo</a></li>
+    <li><a href="eliminarTitulo.html">Eliminar titulo</a></li>
+
+</ul>
+
+<div>
+    <h1>NUEVO TITULO</h1>
+    <form>
+        <label for="titulo">Título</label>
+        <input type="text" id="titulo" name="titulo">
+        <br>
+        <label for="descripcion">Descripcion</label>
+        <textarea id="descripcion" name="descripcion"></textarea>
+        <br>
+        <label for="estado">Estado:</label>
+        <select id="estado" name="estado">
+            <option value="pendiente">Pendiente</option>
+            <option value="haciendo">Haciendo</option>
+            <option value="completado">Completado</option>
+        </select>
+        <br>
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha">
+        <br>
+        <label for="hora">Hora:</label>
+        <input type="time" id="hora" name="hora">
+        <br>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <script src="nuevoTitulo.js"></script>
+</div>
+</body>
+</html>

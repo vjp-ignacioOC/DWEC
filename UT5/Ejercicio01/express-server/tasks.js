@@ -8,7 +8,7 @@ var app = express();
 app.use(express.json());
 // Evitar CORS
 app.use(cors({
-    origin: 'http://localhost:4200'
+    origin: 'http://localhost:63342' //4200
 }));
 
 var url = "/tasks";
@@ -28,40 +28,43 @@ app.get(url, (req,res,next) => {
 });
 
 // Almacenamos un valor de una petición POST
-app.post(url, (req,res,next) => {
-    // El destino nuevo se introduce en el cuerpo de la petición
-    for (const reqElement of req.body) {
-        misDestinos.push(reqElement);
-    };
-    fs.writeFileSync(destinosFichero, JSON.stringify(misDestinos,null,2));
+
+app.post(url, (req, res) => {
+    misDestinos.push(req.body);
+    fs.writeFileSync("db/tasks.json", JSON.stringify(misDestinos, null, 2));
     res.json(misDestinos);
 });
 
 // Actualizamos un valor introduciendo su nombre por parámetros
-app.put(url+"/:name", (req,res,next) => {
-    // :name corresponde con req.params.name
-    let nameIndex = misDestinos.indexOf(req.params.name);
-    if(nameIndex>= 0 && req.body != null){
-        //El parametro a cambiar se introduce en el cuerpo de la petición
-        misDestinos[nameIndex] = req.body[0];
+
+app.put(url+"/:titulo", (req, res) => {
+    let nameIndex = misDestinos.findIndex(tarea => tarea.titulo === req.params.titulo);
+    if (nameIndex >= 0 && req.body) {
+        if (typeof req.body === 'object' && req.body.hasOwnProperty('titulo')) {
+            misDestinos[nameIndex] = {...misDestinos[nameIndex], ...req.body};
+            fs.writeFileSync(destinosFichero, JSON.stringify(misDestinos, null, 2));
+            res.json(misDestinos[nameIndex]);
+        } else {
+            res.status(400).json({ error: "La estructura del cuerpo de la petición no es válida." });
+        }
+    } else {
+        res.status(404).json({ error: "Título no encontrado o cuerpo de la petición inválido." });
     }
-    else {
-        res.json(["Error"]);
-    }
-    fs.writeFileSync(destinosFichero,  JSON.stringify(misDestinos,null,2));
-    res.json(misDestinos[nameIndex]);
 });
 
+
+// Cambios en tasks.js
+
 // Borramos un valor introduciendo su nombre por parámetros
-app.delete(url +"/:name", (req,res,next) => {
-    // :name corresponde con req.params.name
-    let nameIndex = misDestinos.indexOf(req.params.name);
-    if(nameIndex>= 0){
-        misDestinos.splice(nameIndex,1);
-        fs.writeFileSync(destinosFichero,  JSON.stringify(misDestinos,null,2));
+app.delete(url + "/:titulo", (req, res) => {
+    const tituloTarea = req.params.titulo;
+    const tareaIndex = misDestinos.findIndex(tarea => tarea.titulo === tituloTarea); // <-- Aquí está el cambio
+
+    if (tareaIndex >= 0) {
+        misDestinos.splice(tareaIndex, 1);
+        fs.writeFileSync(destinosFichero, JSON.stringify(misDestinos, null, 2));
         res.json(misDestinos);
-    }
-    else {
-        res.json(["Error"]);
+    } else {
+        res.status(404).json({ error: "Título no encontrado o cuerpo de la petición inválido." });
     }
 });
