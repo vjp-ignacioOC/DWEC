@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Examen1</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/examen1.css">
+
+</head>
+<body class="bg-light">
+    <div class="content">
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+                <img src="img/icono_rueda.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                Settings
+            </a>
+        </nav>
+    </div>
+
+    <div class="container pt-5">
+        <div class="row">
+            <!-- Controles-->
+            <div class="col-md-4 border alto-400 bg-white">
+                <nav class="navbar navbar-dark bg-dark">
+                    <a class="navbar-brand" href="#"><img src="img/calculos.png" width="30" height="30" class="d-inline-block align-top mr-1" alt="">Control</a>
+                </nav>
+
+                <label for="selectorBarra" class="navbar-brand casi-mitad ml-1 mt-4">Barra:</label>
+                <select id="selectorBarra" class="casi-mitad">
+                    <option value="1">Primera</option>
+                    <option value="2">Segunda</option>
+                    <option value="3">Tercera</option>
+                    <option value="4">Cuarta</option>
+                </select><br>
+
+                <label for="selectorColor" class="navbar-brand casi-mitad ml-1 mt-4">Color:</label>
+                <select id="selectorColor" class="casi-mitad">
+                    <option value="red">Rojo</option>
+                    <option value="green">Verde</option>
+                    <option value="blue">Azul</option>
+                    <option value="yellow">Amarillo</option>
+                </select><br>
+
+                <label for="selectorPorcentaje" class="navbar-brand casi-mitad ml-1 mt-4">Porcentaje:</label>
+                <input id="selectorPorcentaje" type="text" class="casi-mitad" placeholder="% Completado"/>
+
+                <button id="cambiarAjustes" class="ancho-entero cursor ml-1 mr-1 mt-4">Cambiar ajustes</button>
+                <button id="resetear" class="ancho-entero cursor ml-1 mr-1 mt-4">Resetear</button>
+            </div>
+
+
+            <!-- Gráficos-->
+            <div class="offset-md-1 col-md-7 border alto-400 bg-white">
+                <nav class="navbar navbar-dark bg-dark">
+                    <a class="navbar-brand" href="#"><img src="img/barras2.png" width="30" height="30" class="d-inline-block align-top mr-1" alt="">Gráficos</a>
+                </nav>
+                <div class="container">
+                    <div class="row ml-1 mr-1 mt-3">
+                        <p class="text-muted textoBarra align-middle">Barra 1</p>
+                        <div class="contenedorBarra borde-fuerte">
+                            <div id="barra1" class="barra" style="height:100%;width:50%;background-color: gray"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="container">
+                    <div class="row ml-1 mr-1 mt-5">
+                        <p class="text-muted textoBarra align-middle">Barra 2</p>
+                        <div class="contenedorBarra borde-fuerte">
+                            <div id="barra2" class="barra" style="height:100%;width:50%;background-color: gray"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="container">
+                    <div class="row ml-1 mr-1 mt-5">
+                        <p class="text-muted textoBarra align-middle">Barra 3</p>
+                        <div class="contenedorBarra borde-fuerte">
+                            <div id="barra3" class="barra" style="height:100%;width:50%;background-color: gray"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="container">
+                    <div class="row ml-1 mr-1 mt-5">
+                        <p class="text-muted textoBarra align-middle">Barra 4</p>
+                        <div class="contenedorBarra borde-fuerte">
+                            <div id="barra4" class="barra" style="height:100%;width:50%;background-color: gray"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/examen1.js"></script>
+</body>
+</html>
