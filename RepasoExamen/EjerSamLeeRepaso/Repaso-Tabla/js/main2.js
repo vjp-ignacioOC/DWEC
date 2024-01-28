@@ -26,7 +26,7 @@ function agregarNuevaColumna () {
         td.textContent = `(${i + 1}, ${columnCount})`;
         fila.appendChild(td);
     }
-};
+}
 
 // Función para añadir una nueva fila en el tbody
 function agregarNuevaFila () {
@@ -60,7 +60,7 @@ function agregarNuevaFila () {
     // Agregar la nueva fila al tbody
     tbody.appendChild(fila);
 
-};
+}
 
 // Función para resetear la tabla
 function resetearTabla () {
@@ -68,6 +68,6 @@ function resetearTabla () {
     // thead.innerHTML = '';
     // tbody.innerHTML = '';
     window.location.reload();
-};
+}
 
 

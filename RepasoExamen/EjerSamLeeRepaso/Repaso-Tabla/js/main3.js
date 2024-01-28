@@ -41,7 +41,7 @@ function agregarNuevaColumna() {
         td.textContent = `(${i + 1}, ${columnCount})`;
         fila.appendChild(td);
     }
-};
+}
 
 // Función para agregar una nueva fila al tbody
 function agregarNuevaFila () {
@@ -56,7 +56,7 @@ function agregarNuevaFila () {
         const td = fila.insertCell();
         td.textContent = `(${tabla.rows.length}, ${i + 1})`;
     }
-};
+}
 
 // Función para resetear la tabla
 function resetearTabla () {
@@ -64,6 +64,6 @@ function resetearTabla () {
     // theadCreated = false;
     // tabla.innerHTML = '';
     window.location.reload();
-};
+}
 
 
