@@ -7,6 +7,15 @@ const tabla = document.getElementById('styled-table');
 let columnCount = 0;
 let theadCreated = false;
 
+// Eventos de click para los botones
+const botonNuevaColumna = document.getElementById('nuevaColumna');
+const botonNuevaFila = document.getElementById('nuevaFila');
+const botonReset = document.getElementById('resetearTabla');
+
+botonNuevaColumna.addEventListener('click', agregarNuevaColumna);
+botonNuevaFila.addEventListener('click', agregarNuevaFila);
+botonReset.addEventListener('click', resetearTabla);
+
 // Función para agregar una nueva columna al thead
 const agregarNuevaColumna = () => {
     columnCount++;
@@ -56,11 +65,4 @@ const resetearTabla = () => {
     tabla.innerHTML = '';
 };
 
-// Eventos de click para los botones
-const botonNuevaColumna = document.getElementById('nuevaColumna');
-const botonNuevaFila = document.getElementById('nuevaFila');
-const botonReset = document.getElementById('resetearTabla');
 
-botonNuevaColumna.addEventListener('click', agregarNuevaColumna);
-botonNuevaFila.addEventListener('click', agregarNuevaFila);
-botonReset.addEventListener('click', resetearTabla);

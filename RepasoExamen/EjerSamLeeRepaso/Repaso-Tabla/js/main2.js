@@ -7,6 +7,11 @@ const botonReset = document.getElementById('resetearTabla');
 
 let columnCount = 0;
 
+// Eventos de click para los botones
+botonNuevaColumna.addEventListener('click', agregarNuevaColumna);
+botonNuevaFila.addEventListener('click', agregarNuevaFila);
+botonReset.addEventListener('click', resetearTabla);
+
 // Función para añadir una nueva columna en el thead
 const agregarNuevaColumna = () => {
     columnCount++;
@@ -65,7 +70,4 @@ const resetearTabla = () => {
     window.location.reload();
 };
 
-// Eventos de click para los botones
-botonNuevaColumna.addEventListener('click', agregarNuevaColumna);
-botonNuevaFila.addEventListener('click', agregarNuevaFila);
-botonReset.addEventListener('click', resetearTabla);
+
