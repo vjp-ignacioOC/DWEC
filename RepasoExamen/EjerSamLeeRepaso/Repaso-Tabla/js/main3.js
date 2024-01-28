@@ -2,6 +2,7 @@
 
 // Selección del elemento de la tabla
 const tabla = document.getElementById('styled-table');
+let tbody;
 
 // Inicialización de variables
 let columnCount = 0;
@@ -44,8 +45,14 @@ function agregarNuevaColumna() {
 }
 
 // Función para agregar una nueva fila al tbody
-function agregarNuevaFila () {
-    const fila = tabla.insertRow();
+function agregarNuevaFila() {
+    if (!tbody) {
+        // Si el tbody no ha sido creado, créalo y agréguelo a la tabla
+        tbody = document.createElement('tbody');
+        tabla.appendChild(tbody);
+    }
+
+    const fila = tbody.insertRow();
 
     // Añadir celda para el número de la fila
     const numeroFila = fila.insertCell();
@@ -59,11 +66,10 @@ function agregarNuevaFila () {
 }
 
 // Función para resetear la tabla
-function resetearTabla () {
+function resetearTabla() {
+    // Reiniciar variables y recargar la página
     // columnCount = 0;
     // theadCreated = false;
-    // tabla.innerHTML = '';
+    // tbody = null;
     window.location.reload();
 }
-
-
