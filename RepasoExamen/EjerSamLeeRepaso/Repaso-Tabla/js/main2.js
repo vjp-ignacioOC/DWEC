@@ -13,7 +13,7 @@ botonNuevaFila.addEventListener('click', agregarNuevaFila);
 botonReset.addEventListener('click', resetearTabla);
 
 // Función para añadir una nueva columna en el thead
-const agregarNuevaColumna = () => {
+function agregarNuevaColumna () {
     columnCount++;
     const th = document.createElement('th');
     th.textContent = columnCount;
@@ -29,7 +29,7 @@ const agregarNuevaColumna = () => {
 };
 
 // Función para añadir una nueva fila en el tbody
-const agregarNuevaFila = () => {
+function agregarNuevaFila () {
     // const fila = document.createElement('tr');
     //
     // // Añadir celdas a la nueva fila
@@ -63,7 +63,7 @@ const agregarNuevaFila = () => {
 };
 
 // Función para resetear la tabla
-const resetearTabla = () => {
+function resetearTabla () {
     // columnCount = 0;
     // thead.innerHTML = '';
     // tbody.innerHTML = '';
