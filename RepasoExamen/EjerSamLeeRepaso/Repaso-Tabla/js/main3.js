@@ -12,10 +12,15 @@ let theadCreated = false;
 const botonNuevaColumna = document.getElementById('nuevaColumna');
 const botonNuevaFila = document.getElementById('nuevaFila');
 const botonReset = document.getElementById('resetearTabla');
+const botonEliminarUltimaFila = document.getElementById('eliminarUltimaFila');
+const botonEliminarUltimaColumna = document.getElementById('eliminarUltimaColumna');
 
 botonNuevaColumna.addEventListener('click', agregarNuevaColumna);
 botonNuevaFila.addEventListener('click', agregarNuevaFila);
 botonReset.addEventListener('click', resetearTabla);
+botonEliminarUltimaFila.addEventListener('click', eliminarUltimaFila);
+botonEliminarUltimaColumna.addEventListener('click', eliminarUltimaColumna);
+
 
 // Función para agregar una nueva columna al thead
 function agregarNuevaColumna() {
@@ -62,6 +67,30 @@ function agregarNuevaFila() {
     for (let i = 1; i < columnCount; i++) {
         const td = fila.insertCell();
         td.textContent = `(${tabla.rows.length}, ${i + 1})`;
+    }
+}
+
+// Función para eliminar la última fila del tbody
+function eliminarUltimaFila() {
+    if (tbody && tbody.rows.length > 0) {
+        tbody.deleteRow(tbody.rows.length - 1);
+    }
+}
+
+// Función para eliminar la última columna del thead y las celdas correspondientes en el tbody
+function eliminarUltimaColumna() {
+    if (columnCount > 0) {
+        columnCount--;
+
+        // Eliminar la última columna del thead
+        const thead = tabla.querySelector('thead');
+        thead.removeChild(thead.lastChild);
+
+        // Eliminar las celdas correspondientes en el tbody
+        for (let i = 0; i < tbody.rows.length; i++) {
+            const fila = tbody.rows[i];
+            fila.deleteCell(fila.cells.length - 1);
+        }
     }
 }
 
