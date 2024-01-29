@@ -1,0 +1,113 @@
+body{
+    background-color: #1e1e1e;
+    color:white;
+    margin: 0;
+    padding: 0;
+}
+
+body > h1{
+    text-align: center;
+}
+
+
+.contenedor-filtro{
+
+    width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+.contenedor-filtro > label{
+    padding-right: 40px;
+    font-size: large;
+}
+
+.contenedor-filtro > input{
+    width: 250px;
+}
+
+
+.contenedor{
+    display: flex;
+    justify-content: space-between;
+    width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.columna{
+    width: 30%;
+}
+
+
+.columna >h2{
+    box-sizing: border-box;
+    height: 50px;
+    margin: 0;
+    border: 1px solid #eae7ea;
+    background-color: #5f5c5f;
+    text-align: center;
+    padding-top: 8px;
+}
+
+.controles{
+    text-align: center;
+    padding-top: 1px;
+}
+
+.controles > button{
+    display: block;
+}
+
+.controles > button:first-child {
+    margin-bottom: 5px;
+}
+
+
+.comic{
+    box-sizing: border-box;
+    padding: 8px;
+    border-bottom: 3px solid goldenrod;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.comic img {
+    display: block;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.comic h2{
+    text-align: center;
+}
+
+.comic  p:nth-of-type(1){
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.comic span {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+
+.selected {
+    background-color: blueviolet;
+}
+
+.columna h2.color_palevioletred {
+    background-color: palevioletred;
+}
+
+.columna h2.color_dodgerblue {
+    background-color: dodgerblue;
+}
+
+.columna h2.color_forestgreen {
+    background-color: forestgreen;
+}
+
