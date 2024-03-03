@@ -1,0 +1,75 @@
+/* Reset de estilos para eliminar márgenes y rellenos predeterminados */
+body, h1, h2, h3, p, ul, li, form, label, input, textarea, select {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos generales para toda la página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Estilos para la barra de navegación */
+ul {
+    list-style: none;
+    background-color: #333;
+    overflow: hidden;
+}
+
+ul li {
+    float: left;
+}
+
+ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    background-color: #555;
+}
+
+/* Estilos para los contenedores */
+#contenedorEntradas {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+/* Estilos para los formularios */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* Estilos para los enlaces */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
