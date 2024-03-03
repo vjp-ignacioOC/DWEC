@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 3 - EV1 - 2021-2022</title>
+    <link rel="stylesheet" href="css/css.css">
+</head>
+<body>
+    <h1>Cómics</h1>
+
+
+    <div class="contenedor-filtro">
+        <label for="filtro">Filtro:</label>
+        <input type="search" id="filtro" placeholder="Filtra por texto contenido en título">
+        <input type="button" id="botonAnio" value="Filtrar por Año"></input>
+        <input type="button" id="botonTitulo" value="Filtrar por Titulo"></input>
+    </div>
+
+    <div class="contenedor">
+        <div class="columna">
+            <h2 class="columna_titulo">Pendientes</h2>
+            <div id="pendiente"> <!--Contenedor de pendientes -->
+            <!--
+            <div class="comic selected">
+                    <h2>The Walking Dead</h2>
+                    <img src="http://pm1.narvii.com/6236/c8d96f4536d62af75ada0fc7080e7fa491decab2_00.jpg">
+                    <p>Police officer Rick Grimes is shot and put into a coma one day, but awakens a month later to find that the whole world has gone to crap. An incurable zombie plague has overtaken the planet, turning millions into mindless undead and effectively destroying civilization. </p>
+                    <p><span>Año:</span> 1998</p>
+                    <p><span>Editorial:</span>: Black Horse</p>
+                </div>
+            -->
+
+            </div>
+        </div>
+
+        <div class="columna">
+            <h2 class="columna_titulo">Leyendo</h2>
+            <div id="leyendo"> <!--Contenedor de leyendo -->
+
+            </div>
+        </div>
+
+        <div class="columna">
+            <h2  class="columna_titulo">Completados</h2>
+            <div id="completado"> <!--Contenedor de completado -->
+
+            </div>
+        </div>
+
+        <div class="columna">
+            <div id="ordenAnio">
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="js/examen2-ajax.js"></script>
+</body>
+</html>
